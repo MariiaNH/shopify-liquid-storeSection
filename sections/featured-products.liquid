@@ -1,0 +1,122 @@
+<div class="feauture-products">
+  <h1 class="feauture-products__title">{{ section.settings.featured-products-heading }}</h1>
+
+  <div class="feauture-product-items">
+    {% for block in section.blocks %}
+      <div class="feauture-product-item">
+         <div class="feauture-product-item__container">
+          <div class="feauture-product-item__image"> 
+            <img />
+          </div>
+      
+          <p class="feauture-product-item__title"> 
+            {{ block.settings.featured-products-item-title }}
+          </p>
+      
+          <div class="feauture-product-item__bought-type"> 
+          </div>
+      
+          <button class="feauture-product-item__add-button"> 
+            Add to cart
+          </button>
+          
+        </div>
+       {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .feauture-products__title {
+    margine-bottom: 60px;
+    font-family: Roboto;
+    font-size: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: #656874;
+  }  
+
+    .feauture-product-items {
+      display: flex;
+      gap: 40px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; 
+    }
+
+    .feauture-product-item {
+      margine-bottom: 60px;
+    }
+
+    .feauture-product-item__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+    }
+
+    .feauture-product-item__image{
+      margine-bottom: 30px;
+      height: 340px;
+      width: 520px;
+    }
+
+    .feauture-product-item__title {
+      font-family: Montserrat;
+      font-size: 22px;
+      line-height: 157%;
+      text-align: center;
+      color: #656874;
+      margine-bottom: 13px;
+    }
+
+    .feauture-product-item__bought-type {
+      display: flex;
+      gap: 0;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .feauture-product-item__add-button {
+      box-sizing: border-box;
+      margin: 0 auto;
+      width: 285px;
+      height: 62px;
+      background: #464B90;
+      border: 1px solid #464B90;
+      border-radius: 40px;
+      
+      font-family: 'Montserrat';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+</style>
+
+{% schema %}
+ {
+	"name": "cust featured products",
+	"settings": [{
+		"type": "text",
+		"id": "featured-products-heading",
+		"label": "Featured-products__heading",
+		"default": "Featured products"
+	}],
+	"blocks": [{
+		"type": "column",
+		"name": "feature product",
+		"settings": [{
+			"type": "text",
+			"id": "featured-products-item-title",
+			"label": "Product title",
+            "default": "Product title"
+		}]
+	}],
+	"presets": [{
+		"name": "cust featured products"
+	}]
+}
+{% endschema %}
